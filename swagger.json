@@ -5,7 +5,7 @@
       "title": "UberFacts API"
     },
     "paths": {
-      "/quote": {
+      "/fact": {
         "get": {
           "description": "Get a random fact",
           "produces": [
@@ -29,7 +29,7 @@
           }
         }
       },
-      "/quote/{id}": {
+      "/fact/{id}": {
         "get": {
           "description": "Get a fact by id",
           "produces": [
@@ -68,7 +68,7 @@
           }
         }
       },
-      "/quotes": {
+      "/facts": {
         "get": {
           "description": "Get all facts",
           "produces": [
