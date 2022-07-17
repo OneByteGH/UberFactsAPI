@@ -1,0 +1,108 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "UberFacts API"
+    },
+    "paths": {
+      "/fact": {
+        "get": {
+          "description": "Get a random fact",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "A single fact",
+              "examples": {
+                "application/json": "{\n                  \"id\":0,\n\"fact\": \"This API is cool.\"\n              }"
+              },
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "fact": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/fact/{id}": {
+        "get": {
+          "description": "Get a fact by id",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "The fact id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A single fact",
+              "examples": {
+                "application/json": "{\n                  \"id\":0,\n\"fact\": \"This API is cool.\"\n              }"
+              },
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "fact": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Fact not found",
+              "examples": {
+                "application/json": "{\n                \"error\": \"Fact not found\"\n              }"
+              }
+            }
+          }
+        }
+      },
+      "/facts": {
+        "get": {
+          "description": "Get all facts",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "A list of facts",
+              "examples": {
+                "application/json": "[\r\n    {\r\n        \"id\": 0,\r\n        \"fact\": \"dingus\"\r\n    },\r\n    {\r\n        \"id\": 1,\r\n        \"fact\": \"dingus\"\r\n...    }\r\n]"
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "fact": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
