@@ -8,8 +8,11 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.redirect('/api-docs');
 });
+
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 
 
