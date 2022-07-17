@@ -1,0 +1,94 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "UberFacts API"
+    },
+    "paths": {
+      "/quote": {
+        "get": {
+          "description": "Get a random fact",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "A single fact",
+              "examples": {
+                "application/json": "{\n                  \"fact\": \"This API is cool.\"\n              }"
+              },
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/quote/{id}": {
+        "get": {
+          "description": "Get a fact by id",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "The fact id",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A single fact",
+              "examples": {
+                "application/json": "{\n                  \"fact\": \"This API is cool.\"\n              }"
+              },
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Fact not found",
+              "examples": {
+                "application/json": "{\n                \"error\": \"Fact not found\"\n              }"
+              }
+            }
+          }
+        }
+      },
+      "/quotes": {
+        "get": {
+          "description": "Get all facts",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "A list of facts",
+              "examples": {
+                "application/json": "[\n  \"FACT\",\n \"FACT\",\n  \"FACT\",.......]"
+              },
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
